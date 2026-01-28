@@ -400,8 +400,8 @@ Tables **MUST** follow these rules:
 |Data 1|Data 2|Data 3|
 ```
 
-- **Always** add a space after the opening pipe `| `
-- **Always** add a space before the closing pipe ` |`
+- **Always** add a space after the opening pipe (shown as `|`)
+- **Always** add a space before the closing pipe (shown as `|`)
 - Align columns for readability when practical
 - Use `text` as language identifier for plain text code blocks
 

@@ -8,10 +8,12 @@ Search yourself for the necessary information to complete the merge process. Mai
 If not, present me a list of open PRs to choose from.
 
 Ask me only for:
+
 - which PR to merge (if not obvious)
 - delete branch after merge? (yes/no) - default to yes
 
 Then:
+
 - run `.github/gh-scripts/merge-pr.sh -p "<pr>" -m "squash" -d -a`
 - output merge confirmation
 
