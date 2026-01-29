@@ -423,28 +423,12 @@ Always specify the language. Common identifiers:
 
 ### Nested Code Blocks
 
-When documenting code blocks within code blocks (e.g., showing Markdown examples that contain code), the **outer fence must have more backticks than any inner fence**:
+For nested code blocks, use increasing numbers of backticks:
 
-- Innermost code block: minimum 3 backticks (```)
-- Each outer layer: at least 1 more backtick than the next inner layer
-- Recommended: use 6 backticks (``````) for outer blocks containing standard 3-backtick blocks
-
-**Example:**
-
-```````markdown
-Here is how to show a Python example in documentation:
-
-``````markdown
-# Example Section
-
-```python
-def hello():
-    print("Hello, world!")
-```
-``````
-```````
-
-**Rule:** Outer fence backtick count > inner fence backtick count. Always.
+- Innermost: ≥3 backticks
+- Each outer level: backticks = inner + 1 (or more)
+- Matching backticks per level
+- Outermost > all inner levels
 
 ---
 
