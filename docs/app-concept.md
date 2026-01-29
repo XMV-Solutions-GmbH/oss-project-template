@@ -78,4 +78,3 @@ Template Applied → User runs init-project.sh → Selects Mode → Cleanup
 - **Idempotent scripts** — Safe to re-run without side effects
 - **No external dependencies** — Works with standard Unix tools + gh CLI
 - **Self-cleaning** — Init switch removes itself after execution
-
