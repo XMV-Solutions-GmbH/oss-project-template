@@ -32,10 +32,10 @@
 
 | Status | Task | Notes |
 | ------ | ---- | ----- |
-| ⚪     | Create `tests/template/` structure | bats tests for init-project.sh |
-| ⚪     | Add kcov coverage to CI | Report to Coveralls |
-| ⚪     | Update init-project.sh | Delete tests/template/ on init |
-| ⚪     | Test locally and verify badge | Coverage visible in README |
+| 🟢     | Create `tests/template/` structure | bats tests for init-project.sh |
+| 🟢     | Add kcov coverage to CI | Report to Coveralls |
+| 🟢     | Update init-project.sh | Delete tests/template/ on init |
+| 🟢     | Test locally and verify | 25/25 tests passing |
 
 ## Backlog
 
