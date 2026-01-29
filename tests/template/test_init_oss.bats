@@ -64,7 +64,7 @@ teardown() {
 @test "OSS mode: README init hint is removed" {
     run_init_script oss
     assert_file_not_contains "README.md" "INIT_HINT_START"
-    assert_file_not_contains "README.md" "init-project.sh"
+    assert_file_not_contains "README.md" "INIT_HINT_END"
 }
 
 @test "OSS mode: tests/template directory is removed" {

@@ -9,8 +9,13 @@ setup_test_repo() {
     TEST_DIR=$(mktemp -d)
     export TEST_DIR
     
+    # Get the repo root (3 levels up from helpers.bash)
+    local source_repo
+    source_repo="$(cd "$BATS_TEST_DIRNAME/../.." && pwd)"
+    
     # Copy repository to temp dir (excluding .git to avoid issues)
-    rsync -a --exclude='.git' "$BATS_TEST_DIRNAME/../../.." "$TEST_DIR/repo/"
+    mkdir -p "$TEST_DIR/repo"
+    rsync -a --exclude='.git' "$source_repo/" "$TEST_DIR/repo/"
     
     # Initialise a fresh git repo for the test
     cd "$TEST_DIR/repo" || exit 1
