@@ -13,6 +13,7 @@
 
 | Status | Task | Owner | Notes |
 | ------ | ---- | ----- | ----- |
+| 🟡     | Add AI Assistant Prompts (add-instruction.prompt.md) | AI    | Streamline AI workflows |
 | ⚪     | TBD  | —     | —     |
 
 ## Backlog
