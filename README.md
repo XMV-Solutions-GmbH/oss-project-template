@@ -1,4 +1,5 @@
 <!-- SPDX-License-Identifier: MIT OR Apache-2.0 -->
+<!-- test: verify branch protection -->
 # OSS Project Template
 
 [![Licence](https://img.shields.io/badge/licence-MIT%20OR%20Apache--2.0-blue.svg)](LICENSE)
