@@ -239,6 +239,9 @@ cleanup_init_files() {
     # Remove the init prompt
     rm -f "$REPO_ROOT/.github/prompts/init-project.prompt.md"
     
+    # Remove template tests (only needed for template repo itself)
+    rm -rf "$REPO_ROOT/tests/template" 2>/dev/null || true
+    
     # Remove init hint from README if still present
     sed -i '/<!-- INIT_HINT_START -->/,/<!-- INIT_HINT_END -->/d' \
         "$REPO_ROOT/README.md" 2>/dev/null || true
