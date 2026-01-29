@@ -21,11 +21,11 @@
 
 | Status | Task | Notes |
 | ------ | ---- | ----- |
-| ⚪     | Create `templates/proprietary/` structure | README, CONTRIBUTING, SECURITY templates |
-| ⚪     | Create `init-project.sh` script | Main switch logic |
-| ⚪     | Create `init-project.prompt.md` | AI-guided setup |
-| ⚪     | Update README with setup hint | "Run init-project.sh first" |
-| ⚪     | Mark copilot-instructions sections | For mode-specific deletion |
+| 🟢     | Create `templates/proprietary/` structure | README, CONTRIBUTING, SECURITY templates |
+| 🟢     | Create `init-project.sh` script | Main switch logic |
+| 🟢     | Create `init-project.prompt.md` | AI-guided setup |
+| 🟢     | Update README with setup hint | "Run init-project.sh first" |
+| 🟢     | Mark copilot-instructions sections | Sections already separated |
 | ⚪     | Test both modes | Verify cleanup works |
 
 ## Backlog
