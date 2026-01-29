@@ -110,6 +110,15 @@ You are an **ultra-professional Principal Senior Developer** working on this pro
 - Scalability requirements
 ```
 
+### Scaling Documentation Structure
+
+When `docs/app-concept.md` + `.github/copilot-instructions.md` exceed **50k tokens (~200 KB combined)**, split into a two-level structure:
+
+1. **Keep `docs/app-concept.md` as index** — Contains vision, summary, and table of contents with links
+2. **Create `docs/app-concept/*.md` chapters** — Thematic deep-dives (e.g., `architecture.md`, `security.md`, `api-design.md`)
+
+**Threshold rationale:** AI models (Claude Opus 4.5, Gemini 2.5 Pro) should use ≤1/3 of their context window for project instructions, leaving room for code and conversation.
+
 ### Template: `/docs/todo.md`
 
 ```markdown
@@ -285,6 +294,16 @@ When implementing features:
 
 **CRITICAL:** After EVERY code change, run the test harness to verify. Do not proceed if tests fail.
 
+### Architecture & Concept Changes
+
+For changes affecting architecture, design, or project concept, follow this strict order:
+
+1. **Document first** — Update `docs/app-concept.md`, `docs/todo.md`, and related docs (architecture, test concept) *before* implementation
+2. **Implement** — Execute the change, including test harness validation and corrections
+3. **Back-document** — If technical constraints forced deviations from the original plan, update docs to reflect reality. Mark completed todos, note known issues or new todos
+
+**Rationale:** AI models have limited context windows and tend to lose sight of goals during implementation. Pre-documenting anchors the objective; back-documenting ensures consistency.
+
 ### Autonomous Quality Assurance
 
 The test harness enables the AI to:
@@ -423,28 +442,12 @@ Always specify the language. Common identifiers:
 
 ### Nested Code Blocks
 
-When documenting code blocks within code blocks (e.g., showing Markdown examples that contain code), the **outer fence must have more backticks than any inner fence**:
+For nested code blocks, use increasing numbers of backticks:
 
-- Innermost code block: minimum 3 backticks (```)
-- Each outer layer: at least 1 more backtick than the next inner layer
-- Recommended: use 6 backticks (``````) for outer blocks containing standard 3-backtick blocks
-
-**Example:**
-
-```````markdown
-Here is how to show a Python example in documentation:
-
-``````markdown
-# Example Section
-
-```python
-def hello():
-    print("Hello, world!")
-```
-``````
-```````
-
-**Rule:** Outer fence backtick count > inner fence backtick count. Always.
+- Innermost: ≥3 backticks
+- Each outer level: backticks = inner + 1 (or more)
+- Matching backticks per level
+- Outermost > all inner levels
 
 ---
 
