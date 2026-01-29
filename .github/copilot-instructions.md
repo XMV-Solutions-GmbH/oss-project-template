@@ -110,6 +110,15 @@ You are an **ultra-professional Principal Senior Developer** working on this pro
 - Scalability requirements
 ```
 
+### Scaling Documentation Structure
+
+When `docs/app-concept.md` + `.github/copilot-instructions.md` exceed **50k tokens (~200 KB combined)**, split into a two-level structure:
+
+1. **Keep `docs/app-concept.md` as index** — Contains vision, summary, and table of contents with links
+2. **Create `docs/app-concept/*.md` chapters** — Thematic deep-dives (e.g., `architecture.md`, `security.md`, `api-design.md`)
+
+**Threshold rationale:** AI models (Claude Opus 4.5, Gemini 2.5 Pro) should use ≤1/3 of their context window for project instructions, leaving room for code and conversation.
+
 ### Template: `/docs/todo.md`
 
 ```markdown
