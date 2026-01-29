@@ -50,10 +50,13 @@ DISMISS_STALE_REVIEWS="${DISMISS_STALE_REVIEWS:-true}"
 # Admin enforcement
 ENFORCE_ADMINS="${ENFORCE_ADMINS:-true}"
 
-# Required status checks (space-separated string from repo.ini)
-# Convert to array for processing
-STATUS_CHECKS_STRING="${STATUS_CHECKS:-lint test}"
-read -ra STATUS_CHECKS_ARRAY <<< "${STATUS_CHECKS_STRING}"
+# Required status checks (comma-separated string from repo.ini)
+# Format: "check1,check2" - commas separate checks, spaces are preserved within check names
+# Example: "CI / lint,CI / test" results in two checks: "CI / lint" and "CI / test"
+STATUS_CHECKS_STRING="${STATUS_CHECKS:-lint,test}"
+
+# Convert comma-separated string to array, preserving spaces within check names
+IFS=',' read -ra STATUS_CHECKS_ARRAY <<< "${STATUS_CHECKS_STRING}"
 
 # Optional: allow certain actors to push to main besides team
 EXTRA_USERS="${EXTRA_USERS:-}"
