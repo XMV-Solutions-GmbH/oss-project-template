@@ -285,6 +285,16 @@ When implementing features:
 
 **CRITICAL:** After EVERY code change, run the test harness to verify. Do not proceed if tests fail.
 
+### Architecture & Concept Changes
+
+For changes affecting architecture, design, or project concept, follow this strict order:
+
+1. **Document first** — Update `docs/app-concept.md`, `docs/todo.md`, and related docs (architecture, test concept) *before* implementation
+2. **Implement** — Execute the change, including test harness validation and corrections
+3. **Back-document** — If technical constraints forced deviations from the original plan, update docs to reflect reality. Mark completed todos, note known issues or new todos
+
+**Rationale:** AI models have limited context windows and tend to lose sight of goals during implementation. Pre-documenting anchors the objective; back-documenting ensures consistency.
+
 ### Autonomous Quality Assurance
 
 The test harness enables the AI to:
