@@ -111,7 +111,7 @@ version 2.1.
 
 ### 2.2 CONTRIBUTING.md
 
-```markdown
+``````markdown
 <!-- SPDX-License-Identifier: MIT OR Apache-2.0 -->
 # Contributing to PROJECT_NAME
 
@@ -148,7 +148,7 @@ cd REPO
 
 Every source file must start with:
 
-```
+```text
 // SPDX-License-Identifier: MIT OR Apache-2.0
 ```
 
@@ -177,7 +177,7 @@ Every source file must start with:
 
 Follow [Conventional Commits](https://www.conventionalcommits.org/):
 
-```
+```text
 feat: add new feature
 fix: resolve bug in X
 docs: update README
@@ -195,8 +195,7 @@ chore: update dependencies
 ## Questions?
 
 Open an issue or start a discussion!
-
-```
+``````
 
 ### 2.3 SECURITY.md
 
@@ -285,7 +284,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Defines automatic code review assignment:
 
-```
+```text
 # SPDX-License-Identifier: MIT OR Apache-2.0
 # Default owners for everything
 * @ORG/team-name
@@ -307,7 +306,7 @@ Defines automatic code review assignment:
 
 ### 3.1 LICENSE (Main License - MIT)
 
-```
+```text
 MIT License
 
 Copyright [YEAR] [COPYRIGHT HOLDER]
@@ -329,7 +328,7 @@ Full Apache 2.0 license text from: <https://www.apache.org/licenses/LICENSE-2.0.
 
 With copyright notice at the end:
 
-```
+```text
 Copyright [YEAR] [COPYRIGHT HOLDER]
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -432,7 +431,7 @@ In addition to the SPDX header:
 
 ### README Structure
 
-```markdown
+``````markdown
 <!-- SPDX-License-Identifier: MIT OR Apache-2.0 -->
 # project-name
 
@@ -455,15 +454,15 @@ Short description of what the project does.
 
 ## Installation
 
-\`\`\`bash
+```bash
 # Installation command
-\`\`\`
+```
 
 ## Quick Start
 
-\`\`\`code
+```text
 // Minimal example
-\`\`\`
+```
 
 ---
 
@@ -490,8 +489,7 @@ at your option.
 
 This project is NOT affiliated with [UPSTREAM PROJECT].
 Provided AS-IS without warranty.
-
-```
+``````
 
 ---
 
@@ -830,7 +828,7 @@ ORG=my-org REPO=my-repo ./setup-branch-protection.sh
 - [ ] Create LICENSE-MIT
 - [ ] Create LICENSE-APACHE
 
-### Documentation
+### Project Documentation
 
 - [ ] Create CODE_OF_CONDUCT.md
 - [ ] Create CONTRIBUTING.md

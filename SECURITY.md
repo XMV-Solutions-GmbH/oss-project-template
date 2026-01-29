@@ -14,7 +14,7 @@ If you discover a security vulnerability, please do **not** open a public issue.
 
 ### How to Report
 
-1. **Email**: Send details to **oss@xmv.de**
+1. **Email**: Send details to **<oss@xmv.de>**
 2. **Subject**: `[SECURITY] project-name: <brief description>`
 3. **Include**:
    - Description of the vulnerability

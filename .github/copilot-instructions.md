@@ -400,8 +400,8 @@ Tables **MUST** follow these rules:
 |Data 1|Data 2|Data 3|
 ```
 
-- **Always** add a space after the opening pipe `| `
-- **Always** add a space before the closing pipe ` |`
+- **Always** add a space after the opening pipe (shown as `|`)
+- **Always** add a space before the closing pipe (shown as `|`)
 - Align columns for readability when practical
 - Use `text` as language identifier for plain text code blocks
 
@@ -420,6 +420,31 @@ Always specify the language. Common identifiers:
 | Plain text | `text` |
 | Markdown | `markdown` or `md` |
 | Console output | `console` or `text` |
+
+### Nested Code Blocks
+
+When documenting code blocks within code blocks (e.g., showing Markdown examples that contain code), the **outer fence must have more backticks than any inner fence**:
+
+- Innermost code block: minimum 3 backticks (```)
+- Each outer layer: at least 1 more backtick than the next inner layer
+- Recommended: use 6 backticks (``````) for outer blocks containing standard 3-backtick blocks
+
+**Example:**
+
+```````markdown
+Here is how to show a Python example in documentation:
+
+``````markdown
+# Example Section
+
+```python
+def hello():
+    print("Hello, world!")
+```
+``````
+```````
+
+**Rule:** Outer fence backtick count > inner fence backtick count. Always.
 
 ---
 
