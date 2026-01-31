@@ -13,17 +13,6 @@ This template provides everything you need to start a professional project with 
 
 ---
 
-<!-- INIT_HINT_START -->
-> [!IMPORTANT]
-> **First-time setup required!** After creating a repository from this template, run:
->
-> ```bash
-> .github/gh-scripts/init-project.sh
-> ```
->
-> This will configure the project for either **OSS** (Open Source) or **Proprietary** mode.
-> The script removes files not needed for your chosen mode and cannot be undone.
-<!-- INIT_HINT_END -->
 
 ---
 
