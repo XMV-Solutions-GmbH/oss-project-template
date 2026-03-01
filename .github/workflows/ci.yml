@@ -31,32 +31,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y bats
 
-      - name: Install kcov
+      - name: Run tests
         run: |
-          # Install kcov build dependencies
-          sudo apt-get install -y binutils-dev libcurl4-openssl-dev zlib1g-dev \
-            libdw-dev libiberty-dev cmake g++ python3
-          # Build kcov from source
-          git clone --depth 1 --branch v43 https://github.com/SimonKagstrom/kcov.git /tmp/kcov
-          cd /tmp/kcov
-          mkdir build && cd build
-          cmake ..
-          make -j$(nproc)
-          sudo make install
-
-      - name: Run template tests with coverage
-        run: |
-          mkdir -p coverage
-          # Run bats tests through kcov for coverage
-          kcov --include-path=.github/gh-scripts \
-               --exclude-pattern=tests \
-               coverage \
-               bats tests/template/
-
-      - name: Upload coverage to Coveralls
-        uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: coverage/bats/cobertura.xml
-          format: cobertura
-        continue-on-error: true
+          ./tests/run_tests.sh
