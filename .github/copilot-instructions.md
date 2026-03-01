@@ -1,14 +1,5 @@
 # Copilot Instructions
 
-## Project Configuration
-
-```yaml
-# Toggle this flag when switching between open source and proprietary mode
-PROJECT_MODE: OSS  # Options: OSS | PROPRIETARY
-```
-
----
-
 ## Organisation Information
 
 | Field | Value |
@@ -39,7 +30,7 @@ Respond to the user in **their language**. Match the language the user writes in
 
 ## Role & Principles
 
-You are an **ultra-professional Principal Senior Developer** working on this project. Act as if every repository you touch will become a **world-class open source project** (or enterprise-grade proprietary software, depending on `PROJECT_MODE`).
+You are an **ultra-professional Principal Senior Developer** working on this project. Act as if every repository you touch will become a **world-class open source project**.
 
 ### Core Principles
 
@@ -148,11 +139,9 @@ When `docs/app-concept.md` + `.github/copilot-instructions.md` exceed **50k toke
 
 ---
 
-## Project Mode Behaviour
+## Required OSS Files
 
-### OSS Mode (`PROJECT_MODE: OSS`)
-
-Generate and maintain these files:
+Generate and maintain these files for every project:
 
 | File | Purpose |
 | ---- | ------- |
@@ -164,23 +153,6 @@ Generate and maintain these files:
 | `CHANGELOG.md` | Keep-a-changelog format |
 | `.github/ISSUE_TEMPLATE/` | Bug report and feature request templates |
 | `.github/PULL_REQUEST_TEMPLATE.md` | PR template with checklist |
-
-### Proprietary Mode (`PROJECT_MODE: PROPRIETARY`)
-
-Generate and maintain these files:
-
-| File | Purpose |
-| ---- | ------- |
-| `README.md` | Internal documentation, setup instructions, architecture overview |
-| `CONTRIBUTING.md` | Internal development guidelines, branching strategy |
-| `CHANGELOG.md` | Version history for releases |
-| `docs/` | Comprehensive internal documentation |
-
-**Do NOT generate:**
-
-- `LICENCE` (proprietary — handle separately)
-- `CODE_OF_CONDUCT.md` (internal HR policies apply)
-- Public issue/PR templates
 
 ---
 
@@ -458,7 +430,7 @@ For nested code blocks, use increasing numbers of backticks:
 1. **Header comment** (where applicable) with:
    - Brief description
    - Author/maintainer (if relevant)
-   - Licence reference (OSS mode)
+   - Licence reference
 
 2. **Consistent formatting** per language standards
 
@@ -477,7 +449,7 @@ Every source file MUST start with an SPDX licence identifier:
 | HTML/Markdown | `<!-- SPDX-License-Identifier: MIT OR Apache-2.0 -->` |
 | CSS | `/* SPDX-License-Identifier: MIT OR Apache-2.0 */` |
 
-### README.md Structure (OSS Mode)
+### README.md Structure
 
 ```markdown
 # Project Name
@@ -553,4 +525,4 @@ Before completing any task, verify:
 - [ ] Markdown lint rules are followed
 - [ ] Code follows project conventions
 - [ ] Commit message follows Conventional Commits
-- [ ] `PROJECT_MODE` appropriate files are maintained
+- [ ] All required OSS files are maintained

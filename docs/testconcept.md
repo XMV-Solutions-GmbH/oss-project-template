@@ -57,35 +57,21 @@ tests/
 
 ## Template Repository Tests
 
-This template repository includes its own test harness to validate the init scripts before users apply the template.
+This template repository includes its own test harness to validate the template structure.
 
 ### Test Structure
 
 ```text
 tests/
-├── template/                # Template-specific tests (deleted on init)
-│   ├── test_init_oss.bats       # Test OSS mode initialisation
-│   ├── test_init_proprietary.bats  # Test Proprietary mode initialisation
-│   └── helpers.bash             # Test helper functions
 └── run_tests.sh             # Single entry point
 ```
 
-### What Gets Tested
-
-| Test | Description |
-| ---- | ----------- |
-| `test_init_oss.bats` | Verifies OSS mode keeps licences, removes proprietary templates |
-| `test_init_proprietary.bats` | Verifies Proprietary mode removes licences, updates SPDX headers |
+Tests are added as the template grows. Use bats-core for bash-based validation.
 
 ### Coverage Reporting
 
 - **Tool:** kcov (for bash script coverage)
 - **Service:** Coveralls (badge in README)
-- **Threshold:** Aim for >80% coverage on init-project.sh
-
-### Cleanup on Init
-
-When a user initialises their project (OSS or Proprietary), the `tests/template/` directory is automatically deleted. Users only see tests relevant to their actual project, not the template scaffolding tests.
 
 ---
 

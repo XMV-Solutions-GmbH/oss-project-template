@@ -2,17 +2,17 @@
 
 ## Vision
 
-A production-ready template for professional software projects with AI-assisted development support. The template serves both open source (OSS) and proprietary projects through a one-time initialisation switch.
+A production-ready template for professional open source projects with AI-assisted development support. Every repository created from this template should be ready for world-class open source development from day one.
 
 ## Problem Statement
 
-Starting a new project requires significant boilerplate: licence files, contribution guidelines, CI/CD workflows, and AI instructions. Teams waste time recreating these structures. Additionally, the same professional standards should apply to both OSS and proprietary projects, but the artefacts differ.
+Starting a new open source project requires significant boilerplate: licence files, contribution guidelines, CI/CD workflows, security policies, and AI instructions. Teams waste time recreating these structures for each new project.
 
 ## Target Audience
 
-- Developers starting new OSS projects
-- Teams building proprietary software with professional standards
-- Organisations using AI-assisted development (GitHub Copilot, etc.)
+- Developers starting new open source projects
+- Organisations publishing open source software with professional standards
+- Teams using AI-assisted development (GitHub Copilot, etc.)
 
 ## Core Features
 
@@ -20,49 +20,39 @@ Starting a new project requires significant boilerplate: licence files, contribu
 - [x] AI-assisted development guidelines (copilot-instructions.md)
 - [x] GitHub automation scripts (branch protection, team assignment)
 - [x] Reusable prompts for common workflows (PR creation, merging)
-- [ ] **Project Init Switch** — One-time OSS/Proprietary mode selection
+- [x] Dual licence (MIT OR Apache-2.0) for maximum compatibility
+- [x] Comprehensive documentation templates
 
 ## Architecture Overview
 
-### Project Init Switch (NEW)
+### Repository Structure
 
 ```text
-Template Applied → User runs init-project.sh → Selects Mode → Cleanup
-                                                    │
-                    ┌───────────────────────────────┴───────────────────────────────┐
-                    │                                                               │
-                    ▼                                                               ▼
-               OSS Mode                                                    Proprietary Mode
-         ┌─────────────────┐                                          ┌─────────────────┐
-         │ Keep:           │                                          │ Delete:         │
-         │ - LICENSE*      │                                          │ - LICENSE*      │
-         │ - CODE_OF_COND. │                                          │ - CODE_OF_COND. │
-         │ - ISSUE_TEMPL.  │                                          │ - ISSUE_TEMPL.  │
-         │ Delete:         │                                          │ Replace:        │
-         │ - templates/    │                                          │ - README        │
-         │ - init-project  │                                          │ - CONTRIBUTING  │
-         │   scripts       │                                          │ - SECURITY      │
-         └─────────────────┘                                          │ - SPDX headers  │
-                                                                      │ Delete:         │
-                                                                      │ - templates/    │
-                                                                      │ - init-project  │
-                                                                      └─────────────────┘
+.
+├── .github/
+│   ├── copilot-instructions.md    # AI coding guidelines
+│   ├── CODEOWNERS                 # Code review assignment
+│   ├── ISSUE_TEMPLATE/            # Bug report & feature request templates
+│   ├── PULL_REQUEST_TEMPLATE.md   # PR template with checklist
+│   ├── gh-scripts/                # Repository setup scripts
+│   └── workflows/                 # CI/CD pipelines
+├── docs/
+│   ├── app-concept.md             # Project concept (this file)
+│   ├── howto-oss.md               # OSS setup guide
+│   ├── testconcept.md             # Testing strategy
+│   └── todo.md                    # Task tracking
+├── tests/
+│   └── run_tests.sh               # Single test entry point
+├── CHANGELOG.md                   # Version history
+├── CODE_OF_CONDUCT.md             # Community standards
+├── CONTRIBUTING.md                # Contribution guidelines
+├── LICENSE                        # MIT licence
+├── LICENSE-APACHE                 # Apache 2.0 licence
+├── LICENSE-MIT                    # MIT licence
+├── README.md                      # Project overview
+├── repo.ini                       # Project configuration
+└── SECURITY.md                    # Security policy
 ```
-
-### File Structure After Init
-
-| File | OSS Mode | Proprietary Mode |
-| ---- | -------- | ---------------- |
-| `LICENSE`, `LICENSE-*` | ✅ Keep | ❌ Delete |
-| `CODE_OF_CONDUCT.md` | ✅ Keep | ❌ Delete |
-| `.github/ISSUE_TEMPLATE/` | ✅ Keep | ❌ Delete |
-| `docs/howto-oss.md` | ✅ Keep | ❌ Delete |
-| `README.md` | ✅ Keep (with badges) | 🔄 Replace (internal) |
-| `CONTRIBUTING.md` | ✅ Keep (public) | 🔄 Replace (internal) |
-| `SECURITY.md` | ✅ Keep (public) | 🔄 Replace (internal) |
-| SPDX Headers | ✅ `MIT OR Apache-2.0` | 🔄 `PROPRIETARY` |
-| `templates/` | ❌ Delete | ❌ Delete |
-| `init-project.*` | ❌ Delete | ❌ Delete |
 
 ## Tech Stack
 
@@ -70,6 +60,7 @@ Template Applied → User runs init-project.sh → Selects Mode → Cleanup
 | --------- | ---------- | --------- |
 | Scripts | Bash | Universal availability on dev machines |
 | CI/CD | GitHub Actions | Native GitHub integration |
+| Testing | bats-core | Established bash testing framework |
 | Linting | markdownlint | Consistent documentation |
 | AI | GitHub Copilot | Primary AI assistant target |
 
@@ -77,4 +68,4 @@ Template Applied → User runs init-project.sh → Selects Mode → Cleanup
 
 - **Idempotent scripts** — Safe to re-run without side effects
 - **No external dependencies** — Works with standard Unix tools + gh CLI
-- **Self-cleaning** — Init switch removes itself after execution
+- **British English** — All artefacts use en-GB spelling
