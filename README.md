@@ -7,23 +7,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/XMV-Solutions-GmbH/oss-project-template/badge.svg?branch=main)](https://coveralls.io/github/XMV-Solutions-GmbH/oss-project-template?branch=main)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/XMV-Solutions-GmbH/oss-project-template/issues)
 
-🚀 **Production-ready template for AI-assisted software development.**
+🚀 **Production-ready template for AI-assisted open source development.**
 
-This template provides everything you need to start a professional project with optimised support for AI-assisted development using GitHub Copilot or similar tools. Supports both **Open Source** and **Proprietary** projects.
-
----
-
-<!-- INIT_HINT_START -->
-> [!IMPORTANT]
-> **First-time setup required!** After creating a repository from this template, run:
->
-> ```bash
-> .github/gh-scripts/init-project.sh
-> ```
->
-> This will configure the project for either **OSS** (Open Source) or **Proprietary** mode.
-> The script removes files not needed for your chosen mode and cannot be undone.
-<!-- INIT_HINT_END -->
+This template provides everything you need to start a professional open source project with optimised support for AI-assisted development using GitHub Copilot or similar tools.
 
 ---
 
@@ -31,10 +17,9 @@ This template provides everything you need to start a professional project with 
 
 - **AI-First Development** — Copilot instructions optimised for autonomous quality assurance
 - **Test Harness Patterns** — Tech-stack agnostic testing strategies for AI verification
-- **Dual Mode Support** — Switch between OSS and Proprietary during initialisation
 - **GitHub Automation** — Branch protection, team assignment, and CI/CD workflows
 - **Configurable Setup** — Single `repo.ini` file for project-specific customisation
-- **Dual Licence (OSS)** — MIT OR Apache-2.0 for maximum compatibility
+- **Dual Licence** — MIT OR Apache-2.0 for maximum compatibility
 
 ---
 
@@ -51,22 +36,7 @@ gh repo create YOUR-ORG/YOUR-REPO --template XMV-Solutions-GmbH/oss-project-temp
 # Or click "Use this template" on GitHub
 ```
 
-### 2. Initialise Project Mode
-
-**This step is required before any development!**
-
-```bash
-.github/gh-scripts/init-project.sh
-```
-
-Choose your mode:
-
-| Mode | Description |
-| ---- | ----------- |
-| **OSS** | Open source with MIT OR Apache-2.0 licence, public contribution guidelines |
-| **Proprietary** | Internal use, no public licence, proprietary headers |
-
-### 3. Configure Your Project
+### 2. Configure Your Project
 
 Edit `repo.ini` with your project details:
 
@@ -77,7 +47,7 @@ PROJECT_NAME="Your Project Name"
 PROJECT_DESCRIPTION="Your project description"
 ```
 
-### 4. Run Setup Scripts
+### 3. Run Setup Scripts
 
 ```bash
 # Assign repository to team
@@ -87,7 +57,7 @@ PROJECT_DESCRIPTION="Your project description"
 ./.github/gh-scripts/setup-branch-protection.sh
 ```
 
-### 5. Create Project Documentation
+### 4. Create Project Documentation
 
 Before writing any code, create:
 
@@ -115,6 +85,8 @@ See templates in [docs/](docs/) directory.
 │   ├── howto-oss.md               # OSS setup guide
 │   ├── testconcept.md             # Testing strategy
 │   └── todo.md                    # Task tracking
+├── tests/
+│   └── run_tests.sh               # Test runner
 ├── CHANGELOG.md                   # Version history
 ├── CODE_OF_CONDUCT.md             # Community standards
 ├── CONTRIBUTING.md                # Contribution guidelines

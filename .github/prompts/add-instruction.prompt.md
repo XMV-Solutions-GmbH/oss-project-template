@@ -18,7 +18,7 @@ Follow this process rigorously:
    - **Contradictions**: Does this new rule contradict an existing one?
      - *Action*: STOP and report the conflict.
      - *Options*: Ask the user to choose: Abort, Replace old rule, or Merge/Refine both.
-   - **Consistency**: Does it align with the project's mode (OSS vs Proprietary) and language policy?
+   - **Consistency**: Does it align with the project's language policy and coding standards?
 
 4. **Integration Strategy**:
    - If no conflict exists (or logic is resolved):
