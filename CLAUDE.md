@@ -26,7 +26,7 @@ When the AI agent or a new contributor opens the repo for the first time, they r
 <!-- One paragraph: what the project does, who for, why. Link to the full
      vision document under `docs/`. -->
 
-`<PROJECT_NAME>` <one-sentence description>.
+`<PROJECT_NAME>` — one-sentence description.
 
 Full vision and scope in [`docs/app-concept.md`](docs/app-concept.md). Read it before changing anything that touches the public surface.
 
@@ -44,14 +44,14 @@ Full vision and scope in [`docs/app-concept.md`](docs/app-concept.md). Read it b
 
 ## Project-specific tracking
 
-**Authoritative tracker: GitHub Issues + GitHub Projects** at <https://github.com/`<ORG>`/`<REPO>`/issues>.
+**Authoritative tracker: GitHub Issues + GitHub Projects** at `https://github.com/<ORG>/<REPO>/issues`.
 
 Per [`ENGINEERING_PRINCIPLES.md` § 2](ENGINEERING_PRINCIPLES.md), every XMV OSS project tracks planned work and resolved issues in its repo-bound GitHub Project from day one. Markdown todo files (`docs/todo.md`, `TODO.md`) are not used for new projects — only as a frozen historical artefact when migrating from older repos.
 
 Recommended labels (adjust to fit the project):
 
 - `type:feat` / `type:fix` / `type:chore` / `type:docs` / `type:test`
-- `area:<component>` (one per major component)
+- `area:<component>` (one per major component — replace with concrete labels)
 - `priority:p0` / `p1` / `p2`
 - `agent:claude` (or similar) when an AI agent is the executor
 
