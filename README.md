@@ -59,12 +59,12 @@ PROJECT_DESCRIPTION="Your project description"
 
 ### 4. Create Project Documentation
 
-Before writing any code, create:
+Before writing any code:
 
-- `docs/app-concept.md` — Project vision and architecture
-- `docs/todo.md` — Prioritised task list
-
-See templates in [docs/](docs/) directory.
+- Replace the placeholders in [CLAUDE.md](CLAUDE.md) (project name, tech stack, project-specific overrides). It tells the next agent — human or AI — which principles apply and where the project-specific docs live.
+- Read [ENGINEERING_PRINCIPLES.md](ENGINEERING_PRINCIPLES.md) — the project-agnostic baseline that applies to every XMV OSS project. Don't fork or rewrite it; if a principle improves, back-port it across projects.
+- Write [docs/app-concept.md](docs/app-concept.md) — project vision, scope, and the **Testability** section required by [§ 5 of the principles](ENGINEERING_PRINCIPLES.md).
+- Open the repo's GitHub Project and start filing issues there. Per [§ 2 of the principles](ENGINEERING_PRINCIPLES.md), GitHub Issues + Projects is the authoritative tracker from day one — no `docs/todo.md`.
 
 ---
 
@@ -73,7 +73,7 @@ See templates in [docs/](docs/) directory.
 ```text
 .
 ├── .github/
-│   ├── copilot-instructions.md    # AI coding guidelines
+│   ├── copilot-instructions.md    # GitHub Copilot guidelines
 │   ├── CODEOWNERS                 # Code review assignment
 │   ├── gh-scripts/                # Repository setup scripts
 │   │   ├── assign-repo-to-team.sh
@@ -81,15 +81,16 @@ See templates in [docs/](docs/) directory.
 │   │   └── ...
 │   └── workflows/                 # CI/CD pipelines
 ├── docs/
-│   ├── app-concept.md             # Project concept template
+│   ├── app-concept.md             # Project vision + Testability section
 │   ├── howto-oss.md               # OSS setup guide
-│   ├── testconcept.md             # Testing strategy
-│   └── todo.md                    # Task tracking
+│   └── testconcept.md             # Per-project test layer instantiation
 ├── tests/
 │   └── run_tests.sh               # Test runner
-├── CHANGELOG.md                   # Version history
+├── CHANGELOG.md                   # Version history (Keep a Changelog)
+├── CLAUDE.md                      # Project-specific conventions overlay
 ├── CODE_OF_CONDUCT.md             # Community standards
 ├── CONTRIBUTING.md                # Contribution guidelines
+├── ENGINEERING_PRINCIPLES.md      # Project-agnostic engineering baseline
 ├── LICENSE                        # MIT licence
 ├── LICENSE-APACHE                 # Apache 2.0 licence
 ├── LICENSE-MIT                    # MIT licence
@@ -123,6 +124,8 @@ See [docs/testconcept.md](docs/testconcept.md) for detailed testing strategies.
 
 | Document | Description |
 | -------- | ----------- |
+| [Engineering Principles](ENGINEERING_PRINCIPLES.md) | Project-agnostic baseline — read first |
+| [Project Conventions (CLAUDE.md)](CLAUDE.md) | Per-project overrides + tech-stack notes |
 | [How-To: OSS Setup](docs/howto-oss.md) | Complete guide to setting up OSS projects |
 | [Test Concept](docs/testconcept.md) | Testing strategies for AI-assisted development |
 | [Contributing](CONTRIBUTING.md) | How to contribute to this project |

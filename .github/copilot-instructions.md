@@ -1,5 +1,14 @@
 # Copilot Instructions
 
+> **Read [`ENGINEERING_PRINCIPLES.md`](../ENGINEERING_PRINCIPLES.md) and [`CLAUDE.md`](../CLAUDE.md) at the repo root before this file.**
+>
+> - `ENGINEERING_PRINCIPLES.md` is the project-agnostic baseline (language rule, three test layers, AI-as-developer harness gate, source-control rules, doc-mirrors-repo discipline). Same in every XMV OSS project.
+> - `CLAUDE.md` is the per-project overlay: tech stack, project-specific overrides, links to the project's documentation set.
+>
+> This file (`copilot-instructions.md`) is GitHub Copilot's entry point. It restates and operationalises the principles in Copilot-specific form. When something here disagrees with the principles file, the principles file wins — fix this file.
+
+---
+
 ## Organisation Information
 
 | Field | Value |
