@@ -1,11 +1,11 @@
 <!-- SPDX-License-Identifier: MIT OR Apache-2.0 -->
-# Proposal: <one-line title>
+# Proposal: one-line title
 
 - **Status:** Draft
-- **Authors:** <name <email>>
-- **Date drafted:** <YYYY-MM-DD>
-- **Date accepted:** <YYYY-MM-DD or — if Draft>
-- **Tracking issue:** <link to GitHub issue, if any>
+- **Authors:** `name <email>`
+- **Date drafted:** `YYYY-MM-DD`
+- **Date accepted:** `YYYY-MM-DD` (or — if Draft)
+- **Tracking issue:** `link to GitHub issue, if any`
 
 ## Context
 
@@ -19,11 +19,11 @@ The chosen approach, stated plainly. One or two paragraphs. Don't bury the lead 
 
 For each alternative on the table, a short subsection:
 
-### Alternative A: <name>
+### Alternative A: name
 
-What it would look like. Why it was *not* chosen — the specific drawback that disqualified it. \"Worse\" alone is not a reason; \"worse because users on mobile clients can't render progress notifications\" is.
+What it would look like. Why it was *not* chosen — the specific drawback that disqualified it. "Worse" alone is not a reason; "worse because users on mobile clients can't render progress notifications" is.
 
-### Alternative B: <name>
+### Alternative B: name
 
 …
 
@@ -39,9 +39,9 @@ What changes about the system, the codebase, the process, the team:
 
 Filled in over time as the decision is realised. Bullets pointing at the issues, PRs, commits, or sister-repo changes that carry it out:
 
-- <link>: <what shipped>
+- `link`: what shipped
 - …
 
 ## References
 
-- <link to relevant external docs, RFCs, prior art, etc.>
+- `link to relevant external docs, RFCs, prior art, etc.`
