@@ -75,10 +75,9 @@ Before writing any code:
 ├── .github/
 │   ├── copilot-instructions.md    # 5-line pointer → AGENTS.md (Copilot auto-discovery)
 │   ├── CODEOWNERS                 # Code review assignment
-│   ├── gh-scripts/                # Repository setup scripts
+│   ├── gh-scripts/                # One-shot bootstrap scripts (read repo.ini)
 │   │   ├── assign-repo-to-team.sh
-│   │   ├── setup-branch-protection.sh
-│   │   └── ...
+│   │   └── setup-branch-protection.sh
 │   └── workflows/                 # CI/CD pipelines (+ HARNESS_JOB.md snippet)
 ├── docs/
 │   ├── app-concept.md             # Project vision + Testability section

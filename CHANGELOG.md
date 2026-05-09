@@ -27,6 +27,8 @@ Tracked in [GitHub Issues](https://github.com/XMV-Solutions-GmbH/oss-project-tem
 ### Removed
 
 - Redundant content in `.github/copilot-instructions.md` that was already in `ENGINEERING_PRINCIPLES.md` — Required-OSS-Files table, Test-Harness-First section, Testing Pyramid, File Generation Standards, Version Control Standards, Org Information header, "Excellence by Default" buzzword principles. Each of these had a canonical home elsewhere; the duplicate is gone.
+- **`.github/prompts/`** (entire directory, 6 files, ~160 lines) — Copilot-Chat slash-command shortcuts (`/check-pr`, `/merge-pr`, `/create-pr`, `/new-feature`, `/auto-merge-pr`, `/add-instruction`). Each was either redundant against `AGENTS.md` / PRINCIPLES / `PULL_REQUEST_TEMPLATE.md`, an anti-pattern (admin-bypass on `gh pr merge --admin`), or referenced renamed files (`copilot-instructions.md` no longer holds content). One file even had hardcoded leftovers from another project ("Talos API Rust client library"). No XMV-OSS-relevant content was lost.
+- **4 of 6 scripts in `.github/gh-scripts/`** (~400 lines): `check-pr.sh`, `create-pr.sh`, `merge-pr.sh`, `new-feature.sh`. Each was a thin wrapper around a standard `gh` command (`gh pr checks` / `gh pr create` / `gh pr merge` / `git checkout -b`) coupled to the deleted prompt files. The 2 genuinely useful bootstrap scripts (`assign-repo-to-team.sh` and `setup-branch-protection.sh`) are kept — they read `repo.ini` and configure GitHub repo settings, which is exactly the kind of operation that `ENGINEERING_PRINCIPLES.md` § 8 mandates be scripted, not run ad-hoc.
 
 ## [v0.2.0] — 2026-05-09
 

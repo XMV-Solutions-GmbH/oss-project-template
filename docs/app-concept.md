@@ -12,14 +12,13 @@ Starting a new open source project requires significant boilerplate: licence fil
 
 - Developers starting new open source projects
 - Organisations publishing open source software with professional standards
-- Teams using AI-assisted development (GitHub Copilot, etc.)
+- Teams using AI-assisted development (any agent — Codex, Claude Code, Copilot, Cursor, …)
 
 ## Core Features
 
 - [x] Complete OSS project structure (README, CONTRIBUTING, LICENCE, etc.)
-- [x] AI-assisted development guidelines (copilot-instructions.md)
-- [x] GitHub automation scripts (branch protection, team assignment)
-- [x] Reusable prompts for common workflows (PR creation, merging)
+- [x] Tool-agnostic AI-agent brief (`AGENTS.md`) consumed by Codex, Claude Code, Copilot, etc.
+- [x] GitHub bootstrap scripts (branch protection, team assignment) driven by `repo.ini`
 - [x] Dual licence (MIT OR Apache-2.0) for maximum compatibility
 - [x] Comprehensive documentation templates
 
@@ -30,11 +29,11 @@ Starting a new open source project requires significant boilerplate: licence fil
 ```text
 .
 ├── .github/
-│   ├── copilot-instructions.md    # AI coding guidelines
+│   ├── copilot-instructions.md    # 5-line pointer → AGENTS.md
 │   ├── CODEOWNERS                 # Code review assignment
 │   ├── ISSUE_TEMPLATE/            # Bug report & feature request templates
 │   ├── PULL_REQUEST_TEMPLATE.md   # PR template with checklist
-│   ├── gh-scripts/                # Repository setup scripts
+│   ├── gh-scripts/                # One-shot bootstrap scripts (assign team + branch protection)
 │   └── workflows/                 # CI/CD pipelines
 ├── docs/
 │   ├── app-concept.md             # Project concept (this file)
