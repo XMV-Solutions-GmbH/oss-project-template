@@ -69,19 +69,20 @@ Use `text` for placeholders, command output, or anything that doesn't have a mea
 
 ## Nested code blocks
 
-For nested code blocks, increase the number of backticks at each level:
+For nested code blocks, increase the number of backticks at each level. To embed a Python sample inside a Markdown sample, use four backticks for the outer fence and three for the inner:
 
-````text
+`````text
 ````markdown
 ```python
 print("hello")
 ```
 ````
-````
+`````
 
 - Innermost: ≥3 backticks.
 - Each outer level: at least one more backtick than the level inside it.
 - Backticks per level must match between opening and closing fences.
+- The outermost fence in *this guide* uses five backticks because the example itself contains a four-backtick fence; the same counting rule applies recursively.
 
 ## File hygiene
 
