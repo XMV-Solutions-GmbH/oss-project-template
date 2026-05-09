@@ -446,28 +446,61 @@ Every source file MUST start with an SPDX licence identifier:
 
 ### README.md Structure
 
+The READMEs in the sister projects (`sharepoint-mcp`, `outlook-mcp`) converged on a richer skeleton than the bare-bones one we used to recommend. Three sections in particular pay back the investment:
+
+1. **One-sentence pitch as a blockquote**, immediately under the badges. The reader knows in five seconds whether the project is for them.
+2. **"What is this for?"** — two or three paragraphs setting the stage with the concrete user problem and how this project solves it differently from the obvious alternatives. Avoid abstract feature lists; describe the situation the user is in.
+3. **A use-case dialogue example** — a short `text` code block showing a back-and-forth between the user and the system (or agent / API) that demonstrates the headline workflow. Far more memorable than a feature list.
+
+Skeleton:
+
 ```markdown
 # Project Name
 
 [![Licence](badge)](link)
 [![Build](badge)](link)
 [![Coverage](badge)](link)
+[![Package version](badge)](link)
 [![Contributions Welcome](badge)](link)
 
-Brief project description.
+> **In one sentence:** what the project is and who it's for, in a single
+> sentence under 200 characters. This shows up unrendered on package
+> registries and in search results, so it has to stand alone.
+
+## What is this for?
+
+Two or three paragraphs about the user's actual situation: what they
+have, what they want to do, why the obvious alternatives don't quite
+fit. Concrete and specific — name the user, the artefacts, the
+constraints. End with one sentence describing how this project solves
+that problem.
 
 ## Features
 
-- Feature 1
-- Feature 2
+- Feature 1 — what it does for the user (not the implementation)
+- Feature 2 — same
 
 ## Installation
 
-Installation instructions.
+Installation instructions, copy-pasteable. Cover the most common path
+first; link to alternatives for less common ones.
+
+## Use case
+
+A short dialogue or worked example showing the headline workflow:
+
+​```text
+You:    <what the user types or asks for>
+Agent:  <what the system does>
+        <observable outcome>
+​```
+
+Make it the **golden path**, not an edge case. The reader should
+finish this section thinking "yes, that's the situation I'm in."
 
 ## Usage
 
-Usage examples with code blocks.
+Detailed usage with code blocks. One sub-section per major surface.
 
 ## Documentation
 
