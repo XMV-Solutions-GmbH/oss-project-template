@@ -38,41 +38,46 @@ When you find non-English content in any file you touch, translate it as part of
 
 Every project must keep durable records of:
 
-- **Planned work** — what's coming, what's in flight (TODO list).
-- **Problems encountered + how they were solved** (issues log).
+- **Planned work** — what's coming, what's in flight (the backlog).
+- **Problems encountered + how they were solved** (the issues log).
 
 The point of the issues log: **future-you searches past pain**. If the same root cause surfaces twice, you should be reading the prior resolution, not re-discovering it.
 
 ### Tooling
 
+**Default for XMV OSS projects: GitHub Issues + a repo-bound GitHub Project.** Both planned work and resolved-issue records live there from day one. The repo's GitHub Project is the canonical board; issues are the canonical units of work.
+
+This is a deliberate update over the older "markdown TODO/ISSUES files in `docs/`" pattern that early XMV projects used. We learned that the markdown files drift, get forgotten, and lack the search / linking / assignment / labels / cross-repo references that make a backlog actually useful. GitHub gives those for free, and the repo-bound Project keeps the board scoped tightly to the repo it serves.
+
 | Situation | Use |
 |---|---|
-| Project has Linear / Jira / GitHub Issues set up | Use it. |
-| No external tool yet | Use repo-root markdown: `TODO.md` for planned work, `ISSUES.md` for problems-and-resolutions. |
-| External tool gets set up later | Migrate the markdown contents over, preserving original IDs as references. Keep the markdown as a frozen historical snapshot, or delete once verified migrated. |
+| New XMV OSS project | **GitHub Issues + a repo-bound GitHub Project from day one.** No markdown TODO/ISSUES files. |
+| Existing XMV project still on markdown tracking | Migrate to GitHub Issues; keep the markdown file as a frozen historical artefact (read-only), do not extend it. |
+| External tracker (Linear / Jira) is mandated by the customer | Use it instead of GitHub Issues. The principle is "one canonical tracker per project", not "GitHub specifically". |
+| Pre-bootstrap moment, before the repo even exists | Capture decisions in chat or a scratch note, but file the issues immediately once the repo is up. |
 
-External tools win when available — search, assignment, comments, integrations.
-
-### TODO format
-
-Each TODO has:
-
-- **ID** — sequential, zero-padded (`#001`, `#002`, …). When migrating to an external tool, prefix with the external project key.
-- **Title** — short, English.
-- **Status** — from § 3.
-- **Notes** — bullets capturing context, decisions, and outcome.
+External tools win because of search, assignment, labels, comments, milestones, cross-repo references, and integrations with PRs / CI / releases. Markdown files lose on every one of those.
 
 ### Issue format
 
 Each issue has:
 
-- **ID** — same scheme as TODOs, optionally prefixed with `ISS-` for clarity.
 - **Title** — short, English.
-- **Date encountered** — ISO date.
+- **Body** — at minimum: **Context** (what / why), **Acceptance criteria** (checkbox list of observable outcomes), **Out of scope** (what this issue does *not* cover), **Links** (related issues, PRs, docs).
+- **Labels** — `type:feat` / `type:fix` / `type:chore` / `type:docs` / `type:test`; `area:<component>`; `priority:p0` / `p1` / `p2`. Add `agent:claude` (or equivalent) when an AI agent is the executor.
+- **Milestone** — maps to a release where applicable (`v0.1.0 — MVP`, `v0.2.0`, …).
+- **Status** — managed via the repo's GitHub Project columns; mirrors the legend in § 3.
+
+### Resolved-issue records (post-mortems)
+
+When an issue documents a problem-and-resolution (a bug, an incident, a near-miss), close it with a comment that captures:
+
 - **Symptom** — what was observed.
-- **Root cause** — what was actually wrong (avoid the temptation to describe the fix here).
-- **Resolution** — what fixed it; link to commit/PR if applicable.
+- **Root cause** — what was actually wrong (resist the temptation to describe the fix here).
+- **Resolution** — what fixed it; link the merging PR / commit.
 - **Prevention** — what changed so it won't recur (test added, monitoring, doc, design change).
+
+This is the searchable post-mortem trail. The PR's commit message is *not* a substitute — commit messages describe the change, not the historical incident. Future-you searches issues, not git log.
 
 ---
 
@@ -239,7 +244,8 @@ Every project must have, at repo root or under `docs/`:
 | Architecture (e.g. `docs/architecture.md`) | Target-state of how the system runs. |
 | Secret management (e.g. `docs/secrets.md`) | How secrets are generated, stored, propagated, rotated. |
 | `CLAUDE.md` (or equivalent) | Project-specific conventions; references this file for the generic ones. |
-| `TODO.md`, `ISSUES.md` | Until external tracker is set up. |
+
+The backlog and the resolved-issue log live in **GitHub Issues + the repo-bound GitHub Project** (see § 2), not in markdown files. Older XMV repos may still carry a frozen `docs/todo.md`; do not extend it.
 
 Docs are kept in sync with reality. **Stale docs are a bug** — fix as part of the change that makes them stale.
 
@@ -272,12 +278,12 @@ The principle: a competent reader of the script should understand each step with
 
 Every change leaves the repo in a state where the next agent — human or AI — can pick up and continue **without asking questions**.
 
-- TODO and Issue logs reflect current state, including in-flight work.
+- The backlog and the resolved-issue records (GitHub Issues per § 2) reflect current state, including in-flight work.
 - Status reflects reality (no `DONE` items that aren't actually done).
 - Decisions made in conversation that affect the codebase are written into the relevant doc, not left in chat.
-- Open questions are recorded as `(TBD)` markers in the doc + `TODO` items, not held in someone's head.
+- Open questions are recorded as `(TBD)` markers in the doc and as open issues in the tracker, not held in someone's head.
 
-A new agent should be able to read `CLAUDE.md` + this file + recent commits + `TODO.md` (or the external tracker) + `ISSUES.md` and know what to do next.
+A new agent should be able to read `CLAUDE.md` + this file + recent commits + the repo's GitHub Project board and know what to do next.
 
 ---
 

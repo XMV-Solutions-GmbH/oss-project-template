@@ -39,19 +39,22 @@ Starting a new open source project requires significant boilerplate: licence fil
 ├── docs/
 │   ├── app-concept.md             # Project concept (this file)
 │   ├── howto-oss.md               # OSS setup guide
-│   ├── testconcept.md             # Testing strategy
-│   └── todo.md                    # Task tracking
+│   └── testconcept.md             # Testing strategy
 ├── tests/
 │   └── run_tests.sh               # Single test entry point
 ├── CHANGELOG.md                   # Version history
+├── CLAUDE.md                      # Project-specific conventions overlay
 ├── CODE_OF_CONDUCT.md             # Community standards
 ├── CONTRIBUTING.md                # Contribution guidelines
+├── ENGINEERING_PRINCIPLES.md      # Project-agnostic engineering baseline
 ├── LICENSE                        # MIT licence
 ├── LICENSE-APACHE                 # Apache 2.0 licence
 ├── LICENSE-MIT                    # MIT licence
 ├── README.md                      # Project overview
 ├── repo.ini                       # Project configuration
 └── SECURITY.md                    # Security policy
+
+> Backlog and resolved-issue records live in **GitHub Issues + the repo-bound GitHub Project** (see [`ENGINEERING_PRINCIPLES.md` § 2](../ENGINEERING_PRINCIPLES.md)), not in markdown files.
 ```
 
 ## Tech Stack
