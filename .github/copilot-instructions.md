@@ -63,10 +63,10 @@ You are an **ultra-professional Principal Senior Developer** working on this pro
 
 **THEN** create:
 
-- `/docs/app-concept.md` — Comprehensive project vision and architecture
-- `/docs/todo.md` — Prioritised task list with status tracking
+- `/docs/app-concept.md` — Comprehensive project vision and architecture (must include the **Testability** section per [`ENGINEERING_PRINCIPLES.md` § 5](../ENGINEERING_PRINCIPLES.md))
+- The repo-bound **GitHub Project** + an initial set of issues capturing the work (per [`ENGINEERING_PRINCIPLES.md` § 2](../ENGINEERING_PRINCIPLES.md)) — **no `docs/todo.md`**, that pattern is retired
 
-**DO NOT** begin implementation until these documents exist and are approved by the user.
+**DO NOT** begin implementation until the concept document exists, the GitHub Project is set up, and the user has approved both.
 
 ### Template: `/docs/app-concept.md`
 
@@ -119,32 +119,18 @@ When `docs/app-concept.md` + `.github/copilot-instructions.md` exceed **50k toke
 
 **Threshold rationale:** AI models (Claude Opus 4.5, Gemini 2.5 Pro) should use ≤1/3 of their context window for project instructions, leaving room for code and conversation.
 
-### Template: `/docs/todo.md`
+### Backlog: GitHub Issues + GitHub Project
 
-```markdown
-# Project Todo
+The backlog lives in **GitHub Issues**, organised on the repo-bound **GitHub Project** board. The Project columns mirror the status legend in [`ENGINEERING_PRINCIPLES.md` § 3](../ENGINEERING_PRINCIPLES.md) (`BACKLOG`, `TODO`, `DOING`, `BLOCKED`, `REVIEW`, `DONE`).
 
-## Legend
+Recommended issue scaffolding:
 
-- 🔴 Blocked
-- 🟡 In Progress
-- 🟢 Complete
-- ⚪ Not Started
+- **Title** — short, English.
+- **Body** — `## Context` (what + why), `## Acceptance criteria` (checkbox list of observable outcomes), `## Out of scope`, `## Links`.
+- **Labels** — `type:feat` / `type:fix` / `type:chore` / `type:docs` / `type:test`; `area:<component>`; `priority:p0` / `p1` / `p2`. Add `agent:claude` (or equivalent) when an AI agent is the executor.
+- **Milestone** — maps to the relevant release (`v0.1.0 — MVP`, `v0.2.0`, …).
 
-## Milestones
-
-### v0.1.0 — MVP
-
-| Status | Task | Owner | Notes |
-| ------ | ---- | ----- | ----- |
-| ⚪     | TBD  | —     | —     |
-
-## Backlog
-
-| Priority | Task | Complexity | Notes |
-| -------- | ---- | ---------- | ----- |
-| —        | TBD  | —          | —     |
-```
+Do **not** create `docs/todo.md` or any other markdown TODO file. That pattern is retired (§ 2).
 
 ---
 
@@ -263,13 +249,13 @@ When implementing features:
 
 ```text
 1. User describes feature requirement
-2. AI creates/updates /docs/todo.md with the task
+2. AI files a GitHub Issue capturing the work (Context / Acceptance criteria / Out of scope / Links)
 3. AI writes failing tests in the test harness
 4. AI runs tests (expected: FAIL)
 5. AI implements minimal code
 6. AI runs tests (expected: PASS)
 7. AI refactors while keeping tests green
-8. AI marks task complete in /docs/todo.md
+8. AI opens a PR that closes the issue (use "Closes #N" in the PR body)
 9. Repeat for next feature
 ```
 
@@ -279,7 +265,7 @@ When implementing features:
 
 For changes affecting architecture, design, or project concept, follow this strict order:
 
-1. **Document first** — Update `docs/app-concept.md`, `docs/todo.md`, and related docs (architecture, test concept) *before* implementation
+1. **Document first** — Update `docs/app-concept.md` and related docs (architecture, test concept), and file or update GitHub Issues capturing the work, *before* implementation
 2. **Implement** — Execute the change, including test harness validation and corrections
 3. **Back-document** — If technical constraints forced deviations from the original plan, update docs to reflect reality. Mark completed todos, note known issues or new todos
 
@@ -529,7 +515,7 @@ Before completing any task, verify:
 
 - [ ] Test harness exists and passes
 - [ ] All tests pass
-- [ ] `/docs/todo.md` is updated
+- [ ] Tracking GitHub Issue is updated (closed via PR or status moved on the Project board)
 - [ ] Documentation is updated
 - [ ] Markdown lint rules are followed
 - [ ] Code follows project conventions

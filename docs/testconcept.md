@@ -207,13 +207,13 @@ When implementing features with AI assistance:
 
 ```text
 1. User describes feature requirement
-2. AI creates/updates /docs/todo.md with the task
+2. AI files a GitHub Issue capturing the work (Context / Acceptance criteria / Out of scope / Links)
 3. AI writes failing tests in the test harness
 4. AI runs tests (expected: FAIL)
 5. AI implements minimal code
 6. AI runs tests (expected: PASS)
 7. AI refactors while keeping tests green
-8. AI marks task complete in /docs/todo.md
+8. AI opens a PR that closes the issue (use "Closes #N" in the PR body)
 9. Repeat for next feature
 ```
 
