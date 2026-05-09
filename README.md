@@ -61,7 +61,7 @@ PROJECT_DESCRIPTION="Your project description"
 
 Before writing any code:
 
-- Replace the placeholders in [CLAUDE.md](CLAUDE.md) (project name, tech stack, project-specific overrides). It tells the next agent — human or AI — which principles apply and where the project-specific docs live.
+- Replace the placeholders in [AGENTS.md](AGENTS.md) (project name, tech stack, project-specific overrides, licence-header values). This is the canonical, tool-agnostic brief every AI agent reads — Codex auto-discovers it, and `CLAUDE.md` + `.github/copilot-instructions.md` are five-line pointers back to it.
 - Read [ENGINEERING_PRINCIPLES.md](ENGINEERING_PRINCIPLES.md) — the project-agnostic baseline that applies to every XMV OSS project. Don't fork or rewrite it; if a principle improves, back-port it across projects.
 - Write [docs/app-concept.md](docs/app-concept.md) — project vision, scope, and the **Testability** section required by [§ 5 of the principles](ENGINEERING_PRINCIPLES.md).
 - Open the repo's GitHub Project and start filing issues there. Per [§ 2 of the principles](ENGINEERING_PRINCIPLES.md), GitHub Issues + Projects is the authoritative tracker from day one — no `docs/todo.md`.
@@ -73,21 +73,25 @@ Before writing any code:
 ```text
 .
 ├── .github/
-│   ├── copilot-instructions.md    # GitHub Copilot guidelines
+│   ├── copilot-instructions.md    # 5-line pointer → AGENTS.md (Copilot auto-discovery)
 │   ├── CODEOWNERS                 # Code review assignment
 │   ├── gh-scripts/                # Repository setup scripts
 │   │   ├── assign-repo-to-team.sh
 │   │   ├── setup-branch-protection.sh
 │   │   └── ...
-│   └── workflows/                 # CI/CD pipelines
+│   └── workflows/                 # CI/CD pipelines (+ HARNESS_JOB.md snippet)
 ├── docs/
 │   ├── app-concept.md             # Project vision + Testability section
 │   ├── howto-oss.md               # OSS setup guide
+│   ├── markdown-style.md          # Markdown linting rules (load on demand)
+│   ├── proposals/                 # RFCs / spike notes / architectural decisions
 │   └── testconcept.md             # Per-project test layer instantiation
+├── scripts/                       # Operational scripts (per § 8)
 ├── tests/
 │   └── run_tests.sh               # Test runner
+├── AGENTS.md                      # Canonical AI-agent brief (Codex auto-discovery)
 ├── CHANGELOG.md                   # Version history (Keep a Changelog)
-├── CLAUDE.md                      # Project-specific conventions overlay
+├── CLAUDE.md                      # 5-line pointer → AGENTS.md (Claude Code auto-discovery)
 ├── CODE_OF_CONDUCT.md             # Community standards
 ├── CONTRIBUTING.md                # Contribution guidelines
 ├── ENGINEERING_PRINCIPLES.md      # Project-agnostic engineering baseline
@@ -125,7 +129,8 @@ See [docs/testconcept.md](docs/testconcept.md) for detailed testing strategies.
 | Document | Description |
 | -------- | ----------- |
 | [Engineering Principles](ENGINEERING_PRINCIPLES.md) | Project-agnostic baseline — read first |
-| [Project Conventions (CLAUDE.md)](CLAUDE.md) | Per-project overrides + tech-stack notes |
+| [AGENTS.md](AGENTS.md) | Canonical AI-agent brief (tool-agnostic — Codex / Claude Code / Copilot all read this) |
+| [Markdown style](docs/markdown-style.md) | Lint rules, loaded on demand when editing Markdown |
 | [How-To: OSS Setup](docs/howto-oss.md) | Complete guide to setting up OSS projects |
 | [Test Concept](docs/testconcept.md) | Testing strategies for AI-assisted development |
 | [Contributing](CONTRIBUTING.md) | How to contribute to this project |
