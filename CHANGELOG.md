@@ -10,6 +10,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Tracked in [GitHub Issues](https://github.com/XMV-Solutions-GmbH/oss-project-template/issues).
 
+### Added
+
+- **`AGENTS.md`** as the canonical, tool-agnostic AI-agent brief at the repo root. Every coding agent reads the same file: Codex auto-discovers `AGENTS.md` natively; `CLAUDE.md` (Claude Code) and `.github/copilot-instructions.md` (Copilot) are now five-line pointers that redirect any tool back to `AGENTS.md`.
+- **`docs/markdown-style.md`** — Markdown linting rules (MD001-MD047, table format, code-block languages, nested code blocks, angle-bracket placeholder rule). Pulled out so the guidance is loaded only when an agent is actually producing or editing Markdown — not on every code-only task.
+
+### Changed
+
+- **`ENGINEERING_PRINCIPLES.md` § 1** — language rule tightened from generic "English" to "British English (en-GB)" with concrete examples (colour / initialise / behaviour / licence vs. license).
+- **`ENGINEERING_PRINCIPLES.md` § 7** — README skeleton (one-sentence pitch as blockquote, "What is this for?", use-case dialogue) absorbed into the principles. Was previously in `.github/copilot-instructions.md`; moved here because it applies to humans too.
+- **`ENGINEERING_PRINCIPLES.md` (cross-refs)** — `CLAUDE.md` references updated to `AGENTS.md` throughout (§ 0, § 7, § 10, § 11). `agent:claude` label example generalised to `agent:<tool>`.
+- **`CLAUDE.md`** — reduced from a project-skeleton overlay (~120 lines) to a five-line pointer at `AGENTS.md`. The skeleton's content (project facts, tech stack, overrides, licence-header examples) moved to `AGENTS.md` because that's the canonical agent brief now.
+- **`.github/copilot-instructions.md`** — reduced from ~530 lines to a five-line pointer at `AGENTS.md`. The AI-specific behaviour parts moved to `AGENTS.md`; the human-relevant parts (British English, README structure) absorbed into `ENGINEERING_PRINCIPLES.md`; the Markdown lint rules moved to `docs/markdown-style.md`.
+- **`README.md`** + **`docs/app-concept.md`** structure trees updated to reflect the new layout.
+
+### Removed
+
+- Redundant content in `.github/copilot-instructions.md` that was already in `ENGINEERING_PRINCIPLES.md` — Required-OSS-Files table, Test-Harness-First section, Testing Pyramid, File Generation Standards, Version Control Standards, Org Information header, "Excellence by Default" buzzword principles. Each of these had a canonical home elsewhere; the duplicate is gone.
+
 ## [v0.2.0] — 2026-05-09
 
 A hardening pass driven by lessons learned from the first two projects bootstrapped from this template (`sharepoint-mcp`, `outlook-mcp`). Everything in this release is application- and framework-independent — the template stays language- and domain-neutral.

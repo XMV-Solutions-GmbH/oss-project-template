@@ -39,11 +39,15 @@ Starting a new open source project requires significant boilerplate: licence fil
 ├── docs/
 │   ├── app-concept.md             # Project concept (this file)
 │   ├── howto-oss.md               # OSS setup guide
+│   ├── markdown-style.md          # Markdown linting rules
+│   ├── proposals/                 # RFCs / architectural decisions
 │   └── testconcept.md             # Testing strategy
+├── scripts/                       # Operational scripts
 ├── tests/
 │   └── run_tests.sh               # Single test entry point
+├── AGENTS.md                      # Canonical AI-agent brief
 ├── CHANGELOG.md                   # Version history
-├── CLAUDE.md                      # Project-specific conventions overlay
+├── CLAUDE.md                      # Pointer to AGENTS.md
 ├── CODE_OF_CONDUCT.md             # Community standards
 ├── CONTRIBUTING.md                # Contribution guidelines
 ├── ENGINEERING_PRINCIPLES.md      # Project-agnostic engineering baseline

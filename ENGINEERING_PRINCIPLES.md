@@ -6,9 +6,9 @@ SPDX-FileContributor: David Koller <david.koller@xmv.de>
 
 # Engineering Principles
 
-A reusable, project-agnostic baseline for software development. These principles apply to every project where this file is dropped in. **Read this file before starting any task; it is the default behaviour, with project-specific overrides in `CLAUDE.md` (or equivalent).**
+A reusable, project-agnostic baseline for software development. These principles apply to every project where this file is dropped in. **Read this file before starting any task; it is the default behaviour, with project-specific overrides in `AGENTS.md` (or equivalent).**
 
-This file is intentionally generic — nothing in here mentions a specific product, customer, or technology. Project-specific conventions go in `CLAUDE.md`.
+This file is intentionally generic — nothing in here mentions a specific product, customer, or technology. Project-specific conventions go in `AGENTS.md`.
 
 ---
 
@@ -18,19 +18,19 @@ This file evolves as we discover better ways to work. The maintenance contract:
 
 - When a principle is **added or refined** in one project, evaluate whether to **back-port it** to other projects that already carry a copy of this file.
 - When **starting a new project** with the same maintainer, check for this file; if it's missing, offer to seed it from the most up-to-date canonical version.
-- Avoid project-specific drift. If you find yourself adding "for project X, do Y instead", that belongs in `CLAUDE.md`, not here.
+- Avoid project-specific drift. If you find yourself adding "for project X, do Y instead", that belongs in `AGENTS.md`, not here.
 
 ---
 
 ## 1. Language
 
-All in-repo content is in **English**: code, comments, docstrings, file and directory names, commit messages, PR titles and descriptions, configuration values, log messages, error strings, exception messages.
+All in-repo content is in **British English (en-GB)**: code, comments, docstrings, file and directory names, commit messages, PR titles and descriptions, configuration values, log messages, error strings, exception messages. Use *colour* not *color*, *initialise* not *initialize*, *behaviour* not *behavior*, *licence* (noun) and *license* (verb).
 
 Chat / spoken communication may be in any language — only what lands in git is governed.
 
-When you find non-English content in any file you touch, translate it as part of the current task. Domain terms with no clean English equivalent are translated, with the original noted once in a glossary.
+When you find non-English (or American-English) content in any file you touch, translate it as part of the current task. Domain terms with no clean English equivalent are translated, with the original noted once in a glossary.
 
-**Exempt from this rule:** translation/localization files containing strings shown to end users of the application in a multilingual context (e.g. `locales/de.json`, `i18n/fr/messages.po`, gettext `.po` catalogues). The non-English content in these files is the entire point of the file. The English source strings (and the keys, comments, and metadata around them) still follow this rule.
+**Exempt from this rule:** translation/localisation files containing strings shown to end users of the application in a multilingual context (e.g. `locales/de.json`, `i18n/fr/messages.po`, gettext `.po` catalogues). The non-English content in these files is the entire point of the file. The English source strings (and the keys, comments, and metadata around them) still follow this rule.
 
 ---
 
@@ -64,7 +64,7 @@ Each issue has:
 
 - **Title** — short, English.
 - **Body** — at minimum: **Context** (what / why), **Acceptance criteria** (checkbox list of observable outcomes), **Out of scope** (what this issue does *not* cover), **Links** (related issues, PRs, docs).
-- **Labels** — `type:feat` / `type:fix` / `type:chore` / `type:docs` / `type:test`; `area:<component>`; `priority:p0` / `p1` / `p2`. Add `agent:claude` (or equivalent) when an AI agent is the executor.
+- **Labels** — `type:feat` / `type:fix` / `type:chore` / `type:docs` / `type:test`; `area:<component>`; `priority:p0` / `p1` / `p2`. Add an `agent:<tool>` label (e.g. `agent:codex`, `agent:claude`) when an AI agent is the executor.
 - **Milestone** — maps to a release where applicable (`v0.1.0 — MVP`, `v0.2.0`, …).
 - **Status** — managed via the repo's GitHub Project columns; mirrors the legend in § 3.
 
@@ -243,11 +243,26 @@ Every project must have, at repo root or under `docs/`:
 | App Concept (e.g. `docs/app-concept.md`) | What the product does, who for, why. Includes a Testability section per § 5. |
 | Architecture (e.g. `docs/architecture.md`) | Target-state of how the system runs. |
 | Secret management (e.g. `docs/secrets.md`) | How secrets are generated, stored, propagated, rotated. |
-| `CLAUDE.md` (or equivalent) | Project-specific conventions; references this file for the generic ones. |
+| `AGENTS.md` (or equivalent) | Project-specific conventions, tech stack, and AI-agent behaviour for this repo. Referenced by tool-specific files (`CLAUDE.md`, `.github/copilot-instructions.md`) which are pointers back here. |
 
 The backlog and the resolved-issue log live in **GitHub Issues + the repo-bound GitHub Project** (see § 2), not in markdown files. Older XMV repos may still carry a frozen `docs/todo.md`; do not extend it.
 
 Docs are kept in sync with reality. **Stale docs are a bug** — fix as part of the change that makes them stale.
+
+### README structure
+
+A `README.md` is the first thing a new reader (human or agent) sees. The skeleton that pays back across XMV OSS projects:
+
+1. **Title + badges** (licence, build, coverage, package version, contributions welcome).
+2. **One-sentence pitch as a blockquote**, immediately under the badges. Under 200 characters. This shows up unrendered on package registries and in search results, so it has to stand alone.
+3. **"What is this for?"** — two or three paragraphs of the user's actual situation: what they have, what they want to do, why the obvious alternatives don't quite fit. Concrete and specific (named artefacts, named constraints) before any feature list. End with one sentence on how this project solves it differently.
+4. **Features** — what each feature does for the user, not how it's implemented.
+5. **Installation** — copy-pasteable, common path first.
+6. **Use case** — a short dialogue or worked example showing the headline workflow. Make it the golden path, not an edge case.
+7. **Usage** — detailed, one sub-section per major surface.
+8. **Documentation** — link out to the deeper docs.
+9. **Contributing** — link to `CONTRIBUTING.md`.
+10. **Licence** — name the licence(s); link the files.
 
 ---
 
@@ -283,7 +298,7 @@ Every change leaves the repo in a state where the next agent — human or AI —
 - Decisions made in conversation that affect the codebase are written into the relevant doc, not left in chat.
 - Open questions are recorded as `(TBD)` markers in the doc and as open issues in the tracker, not held in someone's head.
 
-A new agent should be able to read `CLAUDE.md` + this file + recent commits + the repo's GitHub Project board and know what to do next.
+A new agent should be able to read `AGENTS.md` + this file + recent commits + the repo's GitHub Project board and know what to do next.
 
 ---
 
@@ -291,7 +306,7 @@ A new agent should be able to read `CLAUDE.md` + this file + recent commits + th
 
 Every project has:
 
-- A `LICENSE` file at the repo root (and, for dual-licensed projects, `LICENSE-MIT` / `LICENSE-APACHE` alongside it). The specific license is project-specific and named in `CLAUDE.md`.
+- A `LICENSE` file at the repo root (and, for dual-licensed projects, `LICENSE-MIT` / `LICENSE-APACHE` alongside it). The specific licence is project-specific and named in `AGENTS.md`.
 - A `README.md` "License" section that names the license and links to the file. A shields.io-style badge is encouraged for visibility.
 - File-level attribution per **SPDX** (the open-source standard), so each source file declares its license and contributors machine-readably.
 
@@ -305,7 +320,7 @@ SPDX-FileCopyrightText: <year> <copyright holder>
 SPDX-FileContributor: <name> <<email>>
 ```
 
-- The license identifier and copyright holder are project-specific (set in `CLAUDE.md`).
+- The licence identifier and copyright holder are project-specific (set in `AGENTS.md`).
 - The first `SPDX-FileContributor` line is set when the file is **created** and is **never overwritten**. This honours the German *Urheberrecht* (moral right of authorship), which is inalienable.
 - Subsequent substantial contributors **append** additional `SPDX-FileContributor` lines; they do not replace the original.
 - The agent populates the contributor line from the current `git config user.name` / `user.email`.

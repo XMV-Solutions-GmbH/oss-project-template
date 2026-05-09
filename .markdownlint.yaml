@@ -10,3 +10,9 @@ MD041: false
 
 # Disable table column style rule - we prefer aligned tables for readability
 MD060: false
+
+# Allow duplicate headings as long as they're not siblings.
+# This is required for Keep-a-Changelog: every release section has
+# its own "Added" / "Changed" / "Removed" subsections.
+MD024:
+  siblings_only: true
