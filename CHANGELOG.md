@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Tracked in [GitHub Issues](https://github.com/XMV-Solutions-GmbH/oss-project-template/issues).
 
+## [v0.3.0] — 2026-05-09
+
+LLM-product-independence pass. The template no longer privileges any specific AI coding tool: every agent reads the same canonical brief, and the tool-specific files are minimal pointers. Plus a cleanup of GitHub-Copilot-Chat-specific shortcuts that were either redundant or anti-patterns.
+
 ### Added
 
 - **`AGENTS.md`** as the canonical, tool-agnostic AI-agent brief at the repo root. Every coding agent reads the same file: Codex auto-discovers `AGENTS.md` natively; `CLAUDE.md` (Claude Code) and `.github/copilot-instructions.md` (Copilot) are now five-line pointers that redirect any tool back to `AGENTS.md`.
@@ -30,7 +34,7 @@ Tracked in [GitHub Issues](https://github.com/XMV-Solutions-GmbH/oss-project-tem
 - **`.github/prompts/`** (entire directory, 6 files, ~160 lines) — Copilot-Chat slash-command shortcuts (`/check-pr`, `/merge-pr`, `/create-pr`, `/new-feature`, `/auto-merge-pr`, `/add-instruction`). Each was either redundant against `AGENTS.md` / PRINCIPLES / `PULL_REQUEST_TEMPLATE.md`, an anti-pattern (admin-bypass on `gh pr merge --admin`), or referenced renamed files (`copilot-instructions.md` no longer holds content). One file even had hardcoded leftovers from another project ("Talos API Rust client library"). No XMV-OSS-relevant content was lost.
 - **4 of 6 scripts in `.github/gh-scripts/`** (~400 lines): `check-pr.sh`, `create-pr.sh`, `merge-pr.sh`, `new-feature.sh`. Each was a thin wrapper around a standard `gh` command (`gh pr checks` / `gh pr create` / `gh pr merge` / `git checkout -b`) coupled to the deleted prompt files. The 2 genuinely useful bootstrap scripts (`assign-repo-to-team.sh` and `setup-branch-protection.sh`) are kept — they read `repo.ini` and configure GitHub repo settings, which is exactly the kind of operation that `ENGINEERING_PRINCIPLES.md` § 8 mandates be scripted, not run ad-hoc.
 
-## [v0.2.0] — 2026-05-09
+## [v0.2.0] — 2026-05-09 — initial hardening pass
 
 A hardening pass driven by lessons learned from the first two projects bootstrapped from this template (`sharepoint-mcp`, `outlook-mcp`). Everything in this release is application- and framework-independent — the template stays language- and domain-neutral.
 
@@ -53,5 +57,6 @@ A hardening pass driven by lessons learned from the first two projects bootstrap
 
 - **`docs/todo.md`** — retired in favour of GitHub Issues + Projects.
 
-[Unreleased]: https://github.com/XMV-Solutions-GmbH/oss-project-template/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/XMV-Solutions-GmbH/oss-project-template/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/XMV-Solutions-GmbH/oss-project-template/releases/tag/v0.3.0
 [v0.2.0]: https://github.com/XMV-Solutions-GmbH/oss-project-template/releases/tag/v0.2.0
